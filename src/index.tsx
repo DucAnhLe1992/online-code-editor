@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom/client";
-import * as esbuild from "esbuild-wasm";
+import { startService as _startService } from "esbuild-wasm";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
+import { fetchPlugin } from "./plugins/fetch-plugin";
 
 const el = document.getElementById("root");
 
@@ -13,11 +14,10 @@ const App = () => {
   const [code, setCode] = useState("");
 
   const startService = async () => {
-    ref.current = await esbuild.startService({
+    ref.current = await _startService({
       worker: true,
-      wasmURL: "/esbuild.wasm",
+      wasmURL: "https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm",
     });
-    
   };
 
   useEffect(() => {
@@ -30,13 +30,13 @@ const App = () => {
     }
 
     const result = await ref.current.build({
-      entryPoints: ['index.js'],
+      entryPoints: ["index.js"],
       bundle: true,
       write: false,
-      plugins: [unpkgPathPlugin()],
+      plugins: [unpkgPathPlugin(), fetchPlugin(input)],
       define: {
-        'process.env.NODE_ENV': '"production"',
-        global: 'window',
+        "process.env.NODE_ENV": '"production"',
+        global: "window",
       },
     });
 
