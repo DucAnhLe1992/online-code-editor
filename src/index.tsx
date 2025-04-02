@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import { startService as _startService } from "esbuild-wasm";
 import { unpkgPathPlugin } from "./plugins/unpkg-path-plugin";
 import { fetchPlugin } from "./plugins/fetch-plugin";
+import "bulmaswatch/superhero/bulmaswatch.min.css";
+
+import CodeEditor from "./components/code-editor";
 
 const el = document.getElementById("root");
 
@@ -42,7 +45,7 @@ const App = () => {
       },
     });
 
-    iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*');
+    iframe.current.contentWindow.postMessage(result.outputFiles[0].text, "*");
   };
 
   const html = `
@@ -67,6 +70,10 @@ const App = () => {
 
   return (
     <div>
+      <CodeEditor
+        initialValue="const a = 1;"
+        onChange={(value) => setInput(value)}
+      />
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -74,7 +81,12 @@ const App = () => {
       <div>
         <button onClick={onClick}>Submit</button>
       </div>
-      <iframe title="preview" ref={iframe} sandbox="allow-scripts" srcDoc={html} />
+      <iframe
+        title="preview"
+        ref={iframe}
+        sandbox="allow-scripts"
+        srcDoc={html}
+      />
     </div>
   );
 };
