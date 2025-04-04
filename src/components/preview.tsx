@@ -1,13 +1,21 @@
 /* eslint-disable no-eval */
 import { FC, useRef, useEffect } from "react";
 
+import './preview.css';
+
 interface PreviewProps {
   code: string;
 }
 
 const html = `
     <html>
-      <head></head>
+      <head>
+        <style>
+          html {
+            background-color: white;
+          }
+        </style>
+      </head>
       <body>
         <div id="root"></div>
         <script>
@@ -30,16 +38,20 @@ const Preview: FC<PreviewProps> = ({ code }) => {
 
   useEffect(() => {
     iframe.current.srcDoc = html;
-    iframe.current.contentWindow.postMessage(code, "*");
+    setTimeout(() => {
+      iframe.current.contentWindow.postMessage(code, "*");
+    }, 50);
   }, [code]);
 
   return (
-    <iframe
-      title="preview"
-      ref={iframe}
-      sandbox="allow-scripts"
-      srcDoc={html}
-    />
+    <div className="preview-wrapper">
+      <iframe
+        title="preview"
+        ref={iframe}
+        sandbox="allow-scripts"
+        srcDoc={html}
+      />
+    </div>
   );
 };
 
