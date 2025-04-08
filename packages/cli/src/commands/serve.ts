@@ -2,6 +2,8 @@ import path from "path";
 import { Command } from "commander";
 import { serve } from "local-api";
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 interface LocalApiError {
   code: string;
 }
@@ -17,7 +19,7 @@ export const serveCommand = new Command()
 
     try {
       const dir = path.join(process.cwd(), path.dirname(filename));
-      await serve(parseInt(options.port), path.basename(filename), dir);
+      await serve(parseInt(options.port), path.basename(filename), dir, !isProduction);
     } catch (err) {
       if (isLocalApiError(err)) {
         if (err.code === "EADDRINUSE") {
