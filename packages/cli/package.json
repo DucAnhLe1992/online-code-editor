@@ -1,21 +1,30 @@
 {
-  "name": "cli",
+  "name": "bundle-notebook",
   "version": "1.0.0",
   "description": "",
+  "bin": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "tsc --watch --preserveWatchOutput",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "commander": "^13.1.0",
-    "local-api": "^1.0.0"
+    "@bundle-notebook/local-client": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "typescript": "^5.8.3"
+    "esbuild": "0.8.27",
+    "typescript": "^5.8.3",
+    "@bundle-notebook/local-api": "^1.0.0",
+    "commander": "7.0.0"
   }
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import path from "path";
-import cors from 'cors';
+import cors from "cors";
 
 import { createCellsRouter } from "./routes/cells";
 
@@ -24,7 +24,9 @@ export const serve = (
       })
     );
   } else {
-    const packagePath = require.resolve("local-client/build/index.html");
+    const packagePath = require.resolve(
+      "@bundle-notebook/local-client/build/index.html"
+    );
     app.use(express.static(path.dirname(packagePath)));
   }
 

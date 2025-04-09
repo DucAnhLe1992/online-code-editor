@@ -13,6 +13,7 @@ export const persistMiddleware = ({
   getState: () => RootState;
 }) => {
   let timer: NodeJS.Timeout;
+
   return (next: (action: Action) => void) => {
     return (action: Action) => {
       next(action);
@@ -28,6 +29,7 @@ export const persistMiddleware = ({
         if (timer) {
           clearTimeout(timer);
         }
+
         timer = setTimeout(() => {
           saveCells()(dispatch, getState);
         }, 1000);
