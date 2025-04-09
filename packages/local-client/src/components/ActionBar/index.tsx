@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { useActions } from "../hooks/use-actions";
-import './action-bar.css';
+import { useActions } from "../../hooks/use-actions";
+import './index.css';
 
 interface ActionBarProps {
   id: string;

@@ -1,10 +1,10 @@
 import { FC, Fragment, useEffect } from "react";
 
-import { useTypedSelector } from "../hooks/use-typed-selector";
-import { useActions } from "../hooks/use-actions";
-import CellListItem from "./cell-list-item";
-import AddCell from "./add-cell";
-import "./cell-list.css";
+import { useTypedSelector } from "../../hooks/use-typed-selector";
+import { useActions } from "../../hooks/use-actions";
+import CellListItem from "../CellListItem";
+import AddCell from "../AddCell";
+import "./index.css";
 
 const CellList: FC = () => {
   const cells = useTypedSelector(({ cells: { order, data } }) =>

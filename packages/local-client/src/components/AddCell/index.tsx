@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { useActions } from "../hooks/use-actions";
-import "./add-cell.css";
+import { useActions } from "../../hooks/use-actions";
+import "./index.css";
 
 interface AddCellProps {
   previousCellId: string | null;

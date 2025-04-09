@@ -1,10 +1,10 @@
 import { FC, JSX } from "react";
 
-import { Cell } from "../state";
-import CodeCell from "./code-cell";
-import TextEditor from "./text-editor";
-import ActionBar from "./action-bar";
-import "./cell-list-item.css";
+import { Cell } from "../../state";
+import CodeCell from "../CodeCell";
+import TextEditor from "../TextEditor";
+import ActionBar from "../ActionBar";
+import "./index.css";
 
 interface CellListItemProps {
   cell: Cell;

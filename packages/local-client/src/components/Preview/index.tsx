@@ -1,7 +1,7 @@
 /* eslint-disable no-eval */
 import { FC, useRef, useEffect } from "react";
 
-import "./preview.css";
+import "./index.css";
 
 interface PreviewProps {
   code: string;
