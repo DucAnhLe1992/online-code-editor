@@ -18,13 +18,13 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@bundle-notebook/local-client": "^0.1.0"
+    "@bundle-notebook/local-client": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "esbuild": "0.8.27",
-    "typescript": "^5.8.3",
     "@bundle-notebook/local-api": "^1.0.0",
-    "commander": "7.0.0"
+    "@types/node": "^22.14.0",
+    "commander": "7.0.0",
+    "esbuild": "0.8.27",
+    "typescript": "^5.8.3"
   }
 }
