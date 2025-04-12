@@ -34,7 +34,7 @@ export const serveCommand = new Command()
           console.error("Port is in use. Try running on a different port.");
         }
       } else if (err instanceof Error) {
-        console.log("Heres the problem", err.message);
+        console.log("Here's the problem", err.message);
       }
       process.exit(1);
     }

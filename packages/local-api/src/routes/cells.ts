@@ -120,7 +120,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
     } catch (err) {
       if (isLocalApiError(err)) {
         if (err.code === "ENOENT") {
-          await fs.writeFile(fullPath, `${JSON.stringify(defaultCells)}`, "utf-8");
+          await fs.writeFile(fullPath, JSON.stringify(defaultCells), "utf-8");
           res.send(defaultCells);
         }
       } else {

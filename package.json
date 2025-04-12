@@ -4,6 +4,8 @@
   "devDependencies": {
     "lerna": "^3.22.1"
   },
+  "author": "Duc Anh Le",
+  "license": "ISC",
   "scripts": {
     "start": "lerna run start --parallel"
   }

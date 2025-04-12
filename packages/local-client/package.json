@@ -32,6 +32,8 @@
       "last 1 safari version"
     ]
   },
+  "author": "Duc Anh Le",
+  "license": "ISC",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@monaco-editor/react": "3.7.5",

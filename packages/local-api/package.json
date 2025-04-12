@@ -9,13 +9,13 @@
     "access": "public"
   },
   "main": "dist/index.js",
-  "types": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "tsc --watch --preserveWatchOutput",
     "prepublishOnly": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Duc Anh Le",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
