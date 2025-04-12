@@ -2,7 +2,7 @@ import path from "path";
 import { Command } from "commander";
 import { serve } from "@bundle-notebook/local-api";
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 interface LocalApiError {
   code: string;
@@ -19,7 +19,15 @@ export const serveCommand = new Command()
 
     try {
       const dir = path.join(process.cwd(), path.dirname(filename));
-      await serve(parseInt(options.port), path.basename(filename), dir, !isProduction);
+      await serve(
+        parseInt(options.port),
+        path.basename(filename),
+        dir,
+        !isProduction
+      );
+      console.log(
+        `Please proceed to http://localhost:${options.port} to start using the app!`
+      );
     } catch (err) {
       if (isLocalApiError(err)) {
         if (err.code === "EADDRINUSE") {
