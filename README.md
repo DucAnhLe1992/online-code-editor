@@ -13,10 +13,11 @@ npm install bundle-notebook
 
 ## Execution
 This app will run locally on your machine's terminal.
+You can either execute the installed package
 ```
 npm exec bundle-notebook serve
 ```
-or
+or directly execute without installation (recommended for faster execution):
 ```
 npx bundle-notebook serve
 ```

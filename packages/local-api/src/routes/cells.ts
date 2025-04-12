@@ -16,14 +16,11 @@ const defaultCells: Cell[] = [
   {
     id: "100",
     type: "text",
-    content: `
-    # Online code editor and bundler
-    An online IDE for your React JS codes, where you can run your codes and see the production in real-time. This comes with text editor for your documentation in markdown language.
-
-    - Click on this text cell, or the code cell below, to start editing right away.
-    - Hover around the cells and you will see options for creating new cells.
-    - You can move cells vertically and delete cells you no longer need.
-    `,
+    content: `# Online code editor and bundler
+An online IDE for your React JS codes, where you can run your codes and see the production in real-time. This comes with text editor for your documentation in markdown language.
+- Click on this text cell, or the code cell below, to start editing right away.
+- Hover around the cells and you will see options for creating new cells.
+- You can move cells vertically and delete cells you no longer need.`,
   },
   {
     id: "101",
