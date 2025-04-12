@@ -71,7 +71,7 @@ export const fetchCells = () => {
     dispatch({ type: ActionType.FETCH_CELLS });
 
     try {
-      const { data }: { data: Cell[] } = await axios.get("./cells");
+      const { data }: { data: Cell[] } = await axios.get("/cells");
       dispatch({ type: ActionType.FETCH_CELLS_COMPLETE, payload: data });
     } catch (err) {
       if (err instanceof Error) {
@@ -92,7 +92,7 @@ export const saveCells = () => {
     const cells = order.map((id) => data[id]);
 
     try {
-      await axios.post("./cells", { cells });
+      await axios.post("/cells", { cells });
     } catch (err) {
       if (err instanceof Error) {
         dispatch({

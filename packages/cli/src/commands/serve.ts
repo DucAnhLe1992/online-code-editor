@@ -10,8 +10,8 @@ interface LocalApiError {
 
 export const serveCommand = new Command()
   .command("serve [filename]")
-  .description("Open a file for editing")
-  .option("-p, --port <number>", "port to run server on", "4005")
+  .description("Enter a filename to either load previously saved data,\nor start saving your progress (default: \"notebook.js\")")
+  .option("-p, --port <number>", "port to run server on", "4000")
   .action(async (filename = "notebook.js", options: { port: string }) => {
     const isLocalApiError = (err: any): err is LocalApiError => {
       return typeof err.code === "string";

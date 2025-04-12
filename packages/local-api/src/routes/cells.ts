@@ -16,10 +16,26 @@ const defaultCells: Cell[] = [
   {
     id: "100",
     type: "text",
-    content: "Your text here",
+    content: `
+    # Online code editor and bundler
+    An online IDE for your React JS codes, where you can run your codes and see the production in real-time. This comes with text editor for your documentation in markdown language.
+
+    - Click on this text cell, or the code cell below, to start editing right away.
+    - Hover around the cells and you will see options for creating new cells.
+    - You can move cells vertically and delete cells you no longer need.
+    `,
   },
   {
     id: "101",
+    type: "code",
+    content: `
+    // use show() function to show the component, or any other values
+    show(<h1>Hey there!</h1>);
+    `,
+  },
+  {
+    id: "102",
+    type: "code",
     content: `
     import { useState } from 'react';
 
@@ -85,7 +101,6 @@ const defaultCells: Cell[] = [
     // use show() function to show the component, or any other values
     show(<App />);
   `,
-    type: "code",
   },
 ];
 
@@ -94,7 +109,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
   router.use(express.json());
   const fullPath = path.join(dir, filename);
 
-  router.get("./cells", async (req, res) => {
+  router.get("/cells", async (req, res) => {
     const isLocalApiError = (err: any): err is LocalApiError => {
       return typeof err.code === "string";
     };
@@ -114,7 +129,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
     }
   });
 
-  router.post("./cells", async (req, res) => {
+  router.post("/cells", async (req, res) => {
     const { cells }: { cells: Cell[] } = req.body;
     await fs.writeFile(fullPath, JSON.stringify(cells), "utf-8");
     res.send({ status: "cells saved" });

@@ -18,7 +18,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@bundle-notebook/local-client": "^1.1.0"
+    "@bundle-notebook/local-client": "^1.1.0",
+    "bundle-notebook": "^1.1.0"
   },
   "devDependencies": {
     "@bundle-notebook/local-api": "^1.1.0",
