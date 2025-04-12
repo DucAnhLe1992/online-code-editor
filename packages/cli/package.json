@@ -1,6 +1,6 @@
 {
   "name": "bundle-notebook",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "bin": "dist/index.js",
   "publishConfig": {
@@ -18,10 +18,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@bundle-notebook/local-client": "^1.2.0"
+    "@bundle-notebook/local-client": "^1.2.1"
   },
   "devDependencies": {
-    "@bundle-notebook/local-api": "^1.2.0",
+    "@bundle-notebook/local-api": "^1.2.1",
     "@types/node": "^22.14.0",
     "commander": "7.0.0",
     "esbuild": "0.8.27",
