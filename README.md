@@ -92,7 +92,9 @@ online-code-editor/
 
 ## 🛠️ Technologies
 **- Front-end:** React, CSS, redux, TypeScript, esbuild bundler/minifier
+
 **- Back-end:** Node, express, commander CLI
+
 **- Packages:** Lerna, npm, git
 
 ---
